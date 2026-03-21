@@ -5,15 +5,15 @@
     margin: 10px;
 }
 
-.left1 {
+.left {
     float:left;
 }
 
-.right1 {
+.right {
     float:right;
 }
 
-.container1::after {
+.container::after {
     content: "";
     display: block;
     clear: both;
