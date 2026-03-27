@@ -1,0 +1,80 @@
+/*шрифт для тексту документу*/
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+/*контейнер*/
+.block {
+    border: 2px solid black;
+    min-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ddd;
+    overflow: hidden;
+}
+
+/*базовий елемент*/
+.block__element {
+    width: 120px;
+    height: 60px;
+    background: #bbb;
+    border: 2px solid black;
+}
+
+/*текст по центру елементу*/
+.block__element p {
+    text-align: center;
+    margin: 0;
+}
+
+/*елемент збільшений*/
+.block__element--big {
+    width: 180px;
+    height: 144px;
+}
+
+/*позиція елементів*/
+/*елемент ліворуч*/
+.block__element--left {
+    float: left;
+}
+
+/*елемент праворуч*/
+.block__element--right {
+    float: right;
+}
+
+/*відступи від елементів*/
+/*відсуп з правого боку*/
+.block__element--mr {
+    margin-right: 20px;
+}
+
+/*відступ з лівого боку*/
+.block__element--ml {
+    margin-left: 20px;
+}
+
+/**/
+.block__element--mb {
+    margin-bottom: 20px;
+}
+
+/**/
+.block__stack {
+    float: right;
+}
+
+/**/
+.block__center-wrap {
+    float: left;
+    position: relative;
+    left: 50%;
+}
+
+/**/
+.block__center-inner {
+    float: left;
+    position: relative;
+    left: -50%;
+}

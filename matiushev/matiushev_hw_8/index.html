@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    >
+    <title>Float Layout</title>
+  </head>
+  <body>
+    <!--перший рядок-->
+    <header class="block">
+      <div class="block__element block__element--left">
+        <p>Блок ліворуч</p>
+      </div>
+
+      <div class="block__element block__element--right">
+        <p>Блок праворуч</p>
+      </div>
+    </header>
+
+    <main>
+      <!--другий рядок-->
+      <div class="block">
+        <div class="block__element block__element--left">
+          <p>Блок ліворуч</p>
+        </div>
+
+        <div class="block__element block__element--right">
+          <p>Блок праворуч</p>
+        </div>
+
+        <div class="block__element block__element--right block__element--mr">
+          <p>Блок праворуч</p>
+        </div>
+
+        <div class="block__element block__element--right block__element--mr">
+          <p>Блок праворуч</p>
+        </div>
+      </div>
+      <!--третій рядок-->
+      <div class="block">
+        <div class="block__element block__element--left">
+          <p>Блок ліворуч</p>
+        </div>
+
+        <div class="block__element block__element--left block__element--ml">
+          <p>Блок ліворуч</p>
+        </div>
+
+        <div class="block__element block__element--right">
+          <p>Блок праворуч</p>
+        </div>
+
+        <div class="block__element block__element--right block__element--mr">
+          <p>Блок праворуч</p>
+        </div>
+      </div>
+
+      <!--четвертий рядок-->
+      <div class="block">
+        <div class="block__stack">
+          <div class="block__element block__element--mb">
+            <p>Блок праворуч</p>
+          </div>
+
+          <div class="block__element">
+            <p>Блок праворуч</p>
+          </div>
+        </div>
+
+        <div
+          class="block__element block__element--big block__element--right block__element--mr"
+        >
+          <p>Блок праворуч Висотою в 2 блока</p>
+        </div>
+      </div>
+
+      <!--п'ятий рядок-->
+      <div class="block">
+        <div class="block__center-wrap">
+          <div class="block__center-inner">
+            <div
+              class="block__element block__element--big block__element--left block__element--mr"
+            >
+              <p>Блок лівіше (але по центру) висотою 2 блока</p>
+            </div>
+
+            <div class="block__stack">
+              <div class="block__element block__element--mb">
+                <p>Блок праворуч</p>
+              </div>
+
+              <div class="block__element">
+                <p>Блок праворуч</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
