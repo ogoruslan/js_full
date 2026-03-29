@@ -1,0 +1,297 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-color: rgba(248, 246, 244);
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  background-color: rgba(64, 85, 80);
+}
+
+main {
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(64, 85, 80);
+}
+
+.p_footer {
+  color: rgba(248, 248, 248);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+h1 {
+  color: rgba(248, 248, 248);
+  text-align: center;
+  font-size: 40px;
+  padding: 5px;
+  margin: 0;
+}
+
+h2 {
+  color: rgba(248, 248, 248);
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+  margin: 0;
+}
+
+.main_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(232, 229, 224);
+  padding: 1rem 2rem;
+  color: rgba(64, 85, 80);
+}
+
+.main_menu_links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.main_menu_links a {
+  color: rgba(64, 85, 80);
+  text-decoration: none;
+  font-weight: 900;
+  transition: color 0.4s ease;
+}
+
+.main_menu_links a:hover {
+  color: rgb(166, 151, 154);
+}
+
+.main_img {
+  width: 100%;
+  height: 300px;
+}
+
+.main_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main_video {
+  width: 100%;
+  text-align: center;
+}
+
+.main__video-iframe {
+  width: 560px;
+  height: 315px;
+}
+
+@media (max-width: 560px) {
+  .main__video-iframe {
+    width: 370px;
+    height: 208px;
+  }
+}
+
+.about_quote {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.about_text {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.articles_select_menu {
+  background-color: rgba(232, 229, 224);
+  padding-bottom: 3px;
+  padding-left: 3px;
+}
+
+.articles_select_menu_title {
+  margin: 0px;
+  padding: 5px;
+}
+
+.articles_item {
+  border-style: none none solid none;
+  border-color: rgba(64, 85, 80);
+  padding-top: 30px;
+  padding-left: 5px;
+}
+
+.articles_item_title {
+  text-align: center;
+  font-size: 25px;
+  color: rgba(64, 85, 80);
+}
+
+.articles_item_img {
+  text-align: center;
+}
+
+.articles_item_img img {
+  width: 500px;
+  height: 300px;
+}
+
+@media (max-width: 500px) {
+  .articles_item_img img {
+    width: 370px;
+    height: 222px;
+  }
+}
+
+.articles_item_date {
+  text-align: right;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.articles_item_video {
+  text-align: center;
+}
+
+.articles_item_audio {
+  text-align: center;
+}
+
+.articles_item_subtitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contacts_contact_us_title {
+  text-align: center;
+  font-size: 25px;
+  color: rgba(64, 85, 80);
+}
+
+.contacts_legend {
+  text-align: center;
+  font-size: 20px;
+  color: rgba(64, 85, 80);
+}
+
+.contact_label {
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  width: 100%;
+}
+
+.contact_input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px 0;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.contact_input:focus {
+  border: 2px solid rgba(64, 85, 80);
+  outline: none;
+}
+
+.contact_address {
+  padding-top: 50px;
+}
+
+.contact_address_title {
+  text-align: left;
+  font-size: 20px;
+  color: rgba(64, 85, 80);
+}
+
+.contact_button_contact {
+  background-color: rgba(64, 85, 80);
+  border: none;
+  color: rgba(248, 246, 244);
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.gallery_items_container {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+/* TODO fix bottom overlap with footer */
+.gallery_item {
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
+  height: 600px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px lightgray;
+  margin: 1.5% 1%;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.gallery_item:hover {
+  transform: scale(1.1);
+}
+
+.gallery_img {
+  margin: auto;
+  width: 90%;
+  height: 450px;
+}
+
+.gallery_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid rgba(64, 85, 80);
+  border-radius: 10px;
+}
+
+.gallery_item_description {
+  text-align: center;
+  padding-left: 3px;
+  padding-right: 3px;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.gallery_adopt_menu {
+  width: 100%;
+  background-color: rgba(232, 229, 224);
+  padding-bottom: 3px;
+}
+
+.gallery_adopt_menu_title {
+  margin: 0px;
+  padding: 5px;
+}
+
+.gallery_adopt_menu_list {
+  list-style-position: outside;
+  list-style-image: url(./images/balloon-heart.svg);
+}
+
+.gallery_adopt_menu_item {
+  width: 10%;
+  padding: 5px;
+  margin: 5px;
+}

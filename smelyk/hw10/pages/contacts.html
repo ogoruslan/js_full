@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <title>Contacts</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Contact Us!</h1>
+      <h2>
+        You can contact us if you have a question. Or you can create your own
+        profile on our website.
+      </h2>
+    </header>
+
+    <nav class="main_menu">
+      <ul class="main_menu_links">
+        <li class="main_menu_item"><a href="../index.html">Main</a></li>
+        <li class="main_menu_item"><a href="./about.html">About</a></li>
+        <li class="main_menu_item"><a href="./articles.html">Articles</a></li>
+        <li class="main_menu_item"><a href="./contacts.html">Contacts</a></li>
+        <li class="main_menu_item"><a href="./gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="main_img">
+        <img
+          src="../images/pet_contact.png"
+          alt="A puppy in a senter and two doctors on each side from it."
+        />
+      </div>
+
+      <div>
+        <h3 class="contacts_contact_us_title">
+          Leave your information and we will contact you:
+        </h3>
+        <!-- action is not implemented -->
+        <form action="/submit_data" method="post">
+          <fieldset>
+            <legend class="contacts_legend">Personal information</legend>
+            <div>
+              <label for="contact_first_name" class="contact_label"
+                >First Name:</label
+              >
+              <input
+                type="text"
+                id="contact_first_name"
+                class="contact_input"
+                name="first_name"
+                required
+                placeholder="Your first name"
+              />
+            </div>
+            <div>
+              <label for="contact_last_name" class="contact_label"
+                >Last Name:</label
+              >
+              <input
+                type="text"
+                id="contact_last_name"
+                class="contact_input"
+                name="last_name"
+                required
+                placeholder="Your last name"
+              />
+            </div>
+            <div>
+              <label for="contact_email" class="contact_label">Email:</label>
+              <input
+                type="email"
+                id="contact_email"
+                class="contact_input"
+                name="email"
+                required
+                placeholder="e.g.: example@mail.com"
+              />
+            </div>
+            <div>
+              <label for="phone_number" class="contact_label">Phone:</label>
+              <input
+                type="text"
+                id="phone_number"
+                class="contact_input"
+                name="phone_number"
+                required
+                placeholder="123-45-67"
+              />
+            </div>
+            <div>
+              <label for="country" class="contact_label">Country:</label>
+              <select id="country" name="country" class="contact_input">
+                <option value="Ukraine">Ukraine</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Estonia">Estonia</option>
+                <option value="Canada">Canada</option>
+              </select>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="contacts_legend">Your message</legend>
+            <div>
+              <label for="message" class="contact_label"
+                >Have a message for us?</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                class="contact_input"
+                rows="4"
+                cols="50"
+              >
+Leave it here</textarea
+              >
+            </div>
+          </fieldset>
+
+          <button
+            type="button"
+            value="contact"
+            class="contact_button_contact"
+            onclick="alert('We will contact you soon!')"
+          >
+            Contact
+          </button>
+        </form>
+      </div>
+
+      <address class="contact_address">
+        <p class="contact_address_title"><b>Contact information:</b></p>
+        <div>
+          <p>
+            Building Number: 1270<br />
+            Street Name: Rue Gambetta<br />
+            Apartment/Flat: Appartement 665<br />
+            Region: Pays de la Loire<br />
+            City: Montpellier<br />
+            Post Code: 22077
+          </p>
+          <p>Phone: <a href="tel:+5555555">555-55-55</a></p>
+          <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
+        </div>
+      </address>
+    </main>
+
+    <footer>
+      <p class="p_footer">&copy; 2026 Save a Life. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
