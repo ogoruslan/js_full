@@ -47,7 +47,8 @@ body {
   margin: 0;
   list-style: none;
   display: flex;
-  gap: 50px;
+  gap: 20px 50px;
+  flex-wrap: wrap;
 }
 
 .header__link {
