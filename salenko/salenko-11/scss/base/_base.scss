@@ -1,0 +1,15 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: $white;
+  color: #000;
+  margin: 0;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+}

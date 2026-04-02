@@ -1,0 +1,28 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.header {
+  &_nav {
+    padding: 30px 0;
+  }
+
+  &_menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(12px, 3vw, 50px);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &_link {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: $primary-color;
+    text-decoration: none;
+
+    &-active {
+      font-weight: 700;
+    }
+  }
+}
