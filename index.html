@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/normalize.css" />
@@ -19,38 +19,38 @@
   </head>
 
   <body>
-    <header class="header container">
+    <header class="container header">
+      <a href="#" class="header__logo"
+        ><img src="images/logo.png" alt="Logo"
+      /></a>
       <nav class="header__nav">
+        <label for="menu-toggle" class="header__toggle"
+          ><span></span><span></span><span></span
+        ></label>
+        <input type="checkbox" id="menu-toggle" class="header__checkbox" />
         <ul class="header__menu">
           <li class="header__item">
-            <a href="#" class="header__link header__link-active">HOME</a>
+            <a href="#" class="header__link header__link--active">Головна</a>
           </li>
           <li class="header__item">
-            <a href="#" class="header__link">About</a>
+            <a href="#" class="header__link">Події</a>
           </li>
           <li class="header__item">
-            <a href="#" class="header__link">WORKS</a>
+            <a href="#" class="header__link">Контакти</a>
           </li>
           <li class="header__item">
-            <a href="#" class="header__link">PROCESS</a>
-          </li>
-          <li class="header__item">
-            <a href="#" class="header__link">CONTACTS</a>
+            <a href="#" class="header__link">Блог</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="promo container">
-        <h1 class="promo__title">Design and Homeworks</h1>
+      <section class="container promo">
+        <h1 class="promo__title">Ваш особистий психолог у Кривому Розі</h1>
         <p class="promo__description">
-          Ласкаво просимо на наш сайт, присвячений домашнім завданням!
-          Тут ви знайдете цікаві матеріали, поради та ресурси для розвитку
-          ваших навичок у світі розробки. Незалежно від того, чи ви новачок чи
-          досвідчений розробник, ми маємо щось для кожного. Приєднуйтесь до нас
-          і розкрийте свій творчий потенціал разом з нами!
+          Особисті, сімейні та групові консультації
         </p>
-        <button class="promo__button">Learn More</button>
+        <a href="#about" class="promo__button btn">Більше</a>
       </section>
       <section class="about container">
         <h2 class="section__title">List of Us</h2>
