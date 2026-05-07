@@ -1,6 +1,5 @@
 console.log('#3. JavaScript homework example file')
 
-
 /*
  * #1
  *
