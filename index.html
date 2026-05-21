@@ -100,4 +100,17 @@
       <p class="footer__copy">&copy; 2026. All rights reserved.</p>
     </footer>
   </body>
+  <script>
+    const menuButton = document.querySelector(".promo__button");
+    menuButton.addEventListener("click", () => {
+      alert("You clicked the button!");
+    });
+
+    document.addEventListener("contextmenu", function (event) {
+      event.preventDefault(); // Отключаем стандартное меню браузера
+      console.log("Клик правой кнопкой мыши!");
+
+      // Здесь можно вызвать вашу функцию, например, отрисовку кастомного меню
+    });
+  </script>
 </html>
