@@ -3,24 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kliein Ihor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 140px; /* Отступ сверху, чтобы контент не перекрывался фиксированным меню */
+            background-color: #f9f9f9;
+        }
+
+        .header-nav {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background-color: white; 
+            padding: 15px; 
+            box-shadow: none; /* Начальное состояние без тени */
+            transition: box-shadow 0.3s;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .homework-links ul {
+            list-style-type: none;
+            margin: 10px 0 0 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .homework-links ul li a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .homework-links ul li a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+        }
+
+        /* Стили для секций контента с анимацией */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw17">hw17</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw18">hw18</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw19">hw19</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw20">hw20</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw21">hw21</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw22">hw22</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw23">hw23</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw24">hw24</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw25">hw25</a></li>
-            <li><a href="https://github.com/klejnigor5-byte/js_full/tree/main/kliein/hw26">hw26</a></li>
-           
-        </ul>
+
+    <!-- Главная фиксированная шапка -->
+    <nav class="header-nav" id="mainNav">
+        <h1>Kliein Ihor</h1>
+        <div class="homework-links">
+            <ul>
+                <li><a href=../kliein/hw17/proj.html>hw17</a></li>
+                <li><a href=../kliein/hw18>hw18</a></li>
+                <li><a href=../kliein/hw19>hw19</a></li>
+                <li><a href=../kliein/hw20>hw20</a></li>
+                <li><a href=../kliein/hw21>hw21</a></li>
+                <li><a href=../kliein/hw22>hw22</a></li>
+                <li><a href=../kliein/hw23>hw23</a></li>
+                <li><a href=../kliein/hw24>hw24</a></li>
+                <li><a href=../kliein/hw25>hw25</a></li>
+                <li><a href=../kliein/hw26>hw26</a></li>
+                <li><a href=../kliein/hw27/index.html>hw27</a></li>
+                <li><a href=../kliein/hw28/index.html>hw28</a></li>
+            </ul>
+        </div>
     </nav>
-    
+
+    <script>
+        // Перенаправление по клику (работает стандартно, e.preventDefault + window.location избыточны, но оставлены по вашей логике)
+        const links = document.querySelectorAll('.homework-links ul li a');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                window.location.href = href;
+            });
+        });
+
+        // Динамическое добавление тени при скролле
+        function adjustNav() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 10) {
+                nav.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        }
+        window.addEventListener('scroll', adjustNav);
+
+        // Анимация появления секций при прокрутке
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                } else {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        console.log("Hello, Kliein Ihor! Welcome to your homework page. Click on the links above to view your assignments. Happy coding!");
+    </script>
 </body>
 </html>
