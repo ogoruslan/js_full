@@ -36,6 +36,9 @@
             font-size: 48px;
             letter-spacing: 4px;
             text-transform: uppercase;
+            margin: 20px 0;
+            padding: 0 20px;
+
         }
 
 
@@ -107,16 +110,22 @@
             background: #d4af37;
             color: #fff;
             text-decoration: none;
+            margin-left: 15px;
             padding: 10px 18px;
             border-radius: 30px;
             display: flex;
             align-items: center;
             gap: 8px;
             transition: .3s;
+            
+
+
         }
 
         .cart-link:hover {
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, .4);
+
         }
 
         /* HERO */
