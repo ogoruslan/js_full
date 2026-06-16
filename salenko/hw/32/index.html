@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeWork 32.1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <div class="logo">
+        <span class="logo__icon">▶</span>
+        <span class="logo__text">HomeWork 32.1</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h1 class="hero__title">Знайди будь-який <span>фільм</span></h1>
+      <p class="hero__subtitle">Понад 500 000 фільмів та серіалів</p>
+
+      <div class="search-wrap">
+        <div class="search-box">
+          <svg class="search-box__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            class="search-box__input"
+            type="text"
+            id="searchInput"
+            placeholder="Назва фільму або серіалу..."
+            autocomplete="off"
+          />
+          <button class="search-box__clear" id="clearBtn" aria-label="Очистити">✕</button>
+        </div>
+        <p class="search-hint" id="searchHint">🌐 Вводьте назву англійською, мін. 3 символи — наприклад: <em>Matrix</em>, <em>The Dark Knight</em></p>
+      </div>
+    </section>
+
+    <section class="results-section" id="resultsSection">
+      <div class="state state--empty" id="stateEmpty">
+        <div class="state__icon">🎬</div>
+        <p class="state__text">Введіть назву — результати з'являться одразу</p>
+      </div>
+
+      <div class="state state--loading hidden" id="stateLoading">
+        <div class="spinner"></div>
+        <p class="state__text">Шукаємо...</p>
+      </div>
+
+      <div class="state state--error hidden" id="stateError">
+        <div class="state__icon">⚠️</div>
+        <p class="state__text" id="errorText">Щось пішло не так</p>
+      </div>
+
+      <div class="state state--not-found hidden" id="stateNotFound">
+        <div class="state__icon">🔍</div>
+        <p class="state__text">Нічого не знайдено. Спробуйте іншу назву</p>
+      </div>
+
+      <div class="movies-grid hidden" id="moviesGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>ДЗ 32.1. Інтеграція зовнішнього API для живого пошуку фільмів<a href="https://www.omdbapi.com" target="_blank" rel="noopener">OMDb API</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ДЗ 31.1.</title>
+  </head>
+
+  <body>
+    <h1>ДЗ 31.1. Асинхронні операції та робота з API в JavaScript</h1>
+
+    <button onclick="getData('/posts')">GET Posts</button>
+    <button
+      onclick="
+        postData('/posts', { title: 'New Post', body: 'Test body', userId: 1 })
+      "
+    >
+      POST
+    </button>
+    <button
+      onclick="
+        putData(1, {
+          id: 1,
+          title: 'Updated Post',
+          body: 'Updated body',
+          userId: 1,
+        })
+      "
+    >
+      PUT
+    </button>
+    <button onclick="patchData(1, { title: 'Patched Title' })">PATCH</button>
+    <button onclick="deleteData(1)">DELETE</button>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
