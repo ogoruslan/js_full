@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gulp Automation — ДЗ 33.1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.min.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__logo">gulp<span>flow</span></div>
+        <nav class="header__nav">
+          <a href="#features">Можливості</a>
+          <a href="#code">Код</a>
+          <a href="https://vladislavworkmail1717-dev.github.io/js_full/salenko/" target="_blank">GitHub</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badge">Автоматизація веб-розробки з Gulp</div>
+      <h1 class="hero__title">
+        Автоматизація<br /><span>веб-розробки</span> з Gulp
+      </h1>
+      <p class="hero__subtitle">
+        Gulp-проект із компіляцією SCSS, BrowserSync, Autoprefixer, 
+        beautify та мінімізацією CSS — все в одному pipeline.
+      </p>
+      <div class="hero__actions">
+        <a href="#features" class="btn btn--primary">Переглянути можливості</a>
+        <a href="https://vladislavworkmail1717-dev.github.io/js_full/salenko/" target="_blank" class="btn btn--outline">Репозиторій</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features__header">
+        <h2>Що робить <span style="color:#a29bfe">gulpfile</span></h2>
+        <p>П'ять задач автоматизації, налаштованих у одному файлі</p>
+      </div>
+      <div class="features__grid">
+
+        <div class="feature-card">
+          <div class="feature-card__icon">🎨</div>
+          <div class="feature-card__title">SCSS → CSS</div>
+          <p class="feature-card__desc">
+            Компіляція SCSS у чистий CSS через gulp-sass + Dart Sass. 
+            Підтримка вкладених правил, міксинів, змінних та @use/@forward.
+          </p>
+          <span class="feature-card__tag">gulp-sass</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">⚡</div>
+          <div class="feature-card__title">Live Reload</div>
+          <p class="feature-card__desc">
+            BrowserSync автоматично оновлює сторінку при будь-яких змінах 
+            у SCSS, HTML або JS файлах під час розробки.
+          </p>
+          <span class="feature-card__tag">browser-sync</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">🌐</div>
+          <div class="feature-card__title">Вендорні префікси</div>
+          <p class="feature-card__desc">
+            Autoprefixer автоматично додає -webkit-, -moz-, -ms- префікси 
+            для сумісності з останніми 4 версіями браузерів.
+          </p>
+          <span class="feature-card__tag">gulp-autoprefixer</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">✨</div>
+          <div class="feature-card__title">CSS Beautify</div>
+          <p class="feature-card__desc">
+            gulp-cssbeautify форматує вихідний CSS з правильними відступами 
+            та переносами — зручно для читання та дебагу.
+          </p>
+          <span class="feature-card__tag">gulp-cssbeautify</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">🗜️</div>
+          <div class="feature-card__title">Мінімізація CSS</div>
+          <p class="feature-card__desc">
+            gulp-clean-css (рівень 2) видаляє пробіли, коментарі та 
+            дублювання. Результат — style.min.css для продакшену.
+          </p>
+          <span class="feature-card__tag">gulp-clean-css</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="code-demo" id="code">
+    <div class="container">
+      <div class="code-demo__inner">
+        <div class="code-demo__info">
+          <h2>Один <span>gulpfile</span> — повний pipeline</h2>
+          <p>
+            Завдання побудовані на Gulp 5 з ES-модулями. 
+            <code>gulp build</code> — збирає проект одноразово, 
+            <code>gulp</code> — запускає dev-сервер з watch.
+          </p>
+          <a href="https://vladislavworkmail1717-dev.github.io/js_full/salenko/" target="_blank" class="btn btn--outline">Дивитись код →</a>
+        </div>
+
+        <div class="code-demo__block">
+          <div class="code-demo__block-header">
+            <div class="code-demo__block-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span>gulpfile.js</span>
+          </div>
+          <pre><code><span class="kw">export function</span> <span class="fn">styles</span>() {
+  <span class="kw">return</span> gulp.<span class="fn">src</span>(<span class="str">'src/scss/main.scss'</span>)
+    .<span class="fn">pipe</span>(<span class="fn">sass</span>())
+    .<span class="fn">pipe</span>(<span class="fn">autoprefixer</span>())
+    .<span class="fn">pipe</span>(<span class="fn">cssbeautify</span>())
+    .<span class="fn">pipe</span>(<span class="fn">rename</span>(<span class="str">'style.css'</span>))
+    .<span class="fn">pipe</span>(gulp.<span class="fn">dest</span>(<span class="str">'dist/css/'</span>))
+    .<span class="fn">pipe</span>(<span class="fn">cleanCSS</span>({ level: 2 }))
+    .<span class="fn">pipe</span>(<span class="fn">rename</span>({ suffix: <span class="str">'.min'</span> }))
+    .<span class="fn">pipe</span>(gulp.<span class="fn">dest</span>(<span class="str">'dist/css/'</span>))
+    .<span class="fn">pipe</span>(bs.<span class="fn">stream</span>());
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>ДЗ 33.1. Автоматизація веб-розробки з Gulp 
+        <a href="https://vladislavworkmail1717-dev.github.io/js_full/salenko/" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

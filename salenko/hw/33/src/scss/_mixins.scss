@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin respond-to($bp) {
+  @if $bp == mobile {
+    @media (max-width: #{$bp-mobile}) { @content; }
+  } @else if $bp == tablet {
+    @media (max-width: #{$bp-tablet}) { @content; }
+  } @else if $bp == desktop {
+    @media (max-width: #{$bp-desktop}) { @content; }
+  }
+}
+
+@mixin card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $gap-lg;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    border-color: $color-accent;
+    transform: translateY(-4px);
+  }
+}
+
+@mixin gradient-text {
+  background: linear-gradient(135deg, $color-accent, $color-accent-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
