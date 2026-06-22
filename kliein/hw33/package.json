@@ -1,0 +1,40 @@
+{
+  "name": "js_full",
+  "version": "1.0.0",
+  "description": "Homeworks of students from the full js course.",
+  "main": "index.js",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "bootstrap": "^5.3.8",
+    "chokidar": "^4.0.3",
+    "detect-libc": "^2.1.2",
+    "immutable": "^5.1.5",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "node-addon-api": "^7.1.1",
+    "picomatch": "^4.0.4",
+    "readdirp": "^4.1.2",
+    "sass": "^1.98.0",
+    "source-map-js": "^1.2.1",
+    "tailwindcss": "^4.2.4"
+  },
+  "scripts": {
+    "style": "sass scss/main.scss css/style.css --watch",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogoruslan/js_full.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ogoruslan/js_full/issues"
+  },
+  "homepage": "https://github.com/ogoruslan/js_full#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}

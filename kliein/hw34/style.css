@@ -1,0 +1,28 @@
+/* Підключення локального шрифту */
+@font-face {
+    font-family: 'RobotoLocal';
+    src: url('../assets/fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'RobotoLocal', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Використання зображення як фону через CSS */
+.logo-box {
+    width: 200px;
+    height: 200px;
+    background-image: url('../assets/images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 20px auto;
+}
