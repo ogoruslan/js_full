@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const EslintWebpackPlugin = require('eslint-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_PROD = !IS_DEV;
@@ -57,7 +58,7 @@ const jsLoaders = (extra) => {
   return loaders;
 }
 
-const setPlugins = () => {
+const setPlugins = (env = {}) => {
   const plugins = [
     new HtmlWebpackPlugin({
       template: './index.html'
@@ -80,6 +81,14 @@ const setPlugins = () => {
     }),
   ]
 
+  if (env.analyze) {
+    plugins.push(new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      reportFilename: 'bundle-report.html',
+    }));
+  }
+
   if(IS_PROD) {
     //code
   }
@@ -91,9 +100,9 @@ const setPlugins = () => {
   return plugins;
 }
 
-module.exports = {
+module.exports = (env = {}) => ({
   context: path.resolve(__dirname,'src'),
-  mode: 'development',
+  mode: IS_DEV ? 'development' : 'production',
   entry: {
     main: './index.jsx',
   },
@@ -114,9 +123,11 @@ module.exports = {
   devServer: {
     port: 4200,
     hot: false,
+    liveReload: true,
+    watchFiles: ['src/**/*'],
   },
   devtool: IS_DEV ? 'source-map' : false,
-  plugins: setPlugins(),
+  plugins: setPlugins(env),
   module: {
     rules: [
       {
@@ -174,4 +185,4 @@ module.exports = {
       },
     ],
   }
-}
+})
