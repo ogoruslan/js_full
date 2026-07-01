@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Work 31</title>
+</head>
+<body>
+  <h1>Home Work 31</h1>
+  <h2>GET</h2>
+  <form id="getForm">
+    <input
+        id="getSegment"
+        value="/posts/1"
+        placeholder="/posts/1"
+    >
+    <button>GET</button>
+  </form>
+  <hr>
+  <h2>POST</h2>
+  <form id="postForm">
+    <input
+        id="postTitle"
+        placeholder="Title"
+        required
+    >
+    <input
+        id="postBody"
+        placeholder="Body"
+        required
+    >
+    <input
+        id="postUserId"
+        type="number"
+        value="1"
+    >
+    <button>POST</button>
+  </form>
+  <hr>
+  <h2>PUT</h2>
+  <form id="putForm">
+    <input
+        id="putId"
+        type="number"
+        value="1"
+    >
+    <input
+        id="putTitle"
+        placeholder="Title"
+    >
+    <input
+        id="putBody"
+        placeholder="Body"
+    >
+    <button>PUT</button>
+  </form>
+  <hr>
+  <h2>PATCH</h2>
+  <form id="patchForm">
+    <input
+        id="patchId"
+        type="number"
+        value="1"
+    >
+    <input
+        id="patchTitle"
+        placeholder="New title"
+    >
+    <button>PATCH</button>
+  </form>
+  <hr>
+  <h2>DELETE</h2>
+  <form id="deleteForm">
+    <input
+        id="deleteId"
+        type="number"
+        value="1"
+    >
+    <button>DELETE</button>
+  </form>
+  <hr>
+  <h2>Result</h2>
+  <p id="output"></p>
+
+  <script src="./main.js"></script>
+</body>
+</html>
