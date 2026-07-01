@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
         # Change folder target to 'dist' if using Vite, or 'out' if Next.js export
-        path: ./dist 
+        path: .
