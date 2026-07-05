@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const EslintWebpackPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_PROD = !IS_DEV;
@@ -78,9 +79,21 @@ const setPlugins = () => {
       extensions: ['js'],
       fix: true
     }),
+    new CopyPlugin({
+      patterns: [
+        { 
+          from: path.resolve(__dirname, 'src/pages'), 
+          to: 'pages' // Створить папку dist/pages/
+        },
+        { 
+          from: path.resolve(__dirname, 'src/images'), 
+          to: 'images' // Створить папку dist/images/
+        },
+      ],
+    }),
   ]
 
-  if(IS_PROD) {
+  if(IS_PROD) { 
     //code
   }
 
