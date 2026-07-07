@@ -1,61 +1,52 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const EslintWebpackPlugin = require('eslint-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const EslintWebpackPlugin = require('eslint-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
-const IS_DEV = process.env.NODE_ENV === 'development';
-const IS_PROD = !IS_DEV;
+const IS_DEV = process.env.NODE_ENV === 'development'
+const IS_PROD = !IS_DEV
 
 const optimization = () => {
   return {
     splitChunks: {
-      chunks: 'all',
+      chunks: 'all'
     },
-    minimizer: [
-      new CssMinimizerWebpackPlugin(),
-      new TerserPlugin(),
-    ]
+    minimizer: [new CssMinimizerWebpackPlugin(), new TerserPlugin()]
   }
-} 
+}
 
 const filename = (ext) => {
-  return IS_DEV ? 
-      `[name].${ext}` : 
-      `[name].[contenthash].${ext}`;
+  return IS_DEV ? `[name].${ext}` : `[name].[contenthash].${ext}`
 }
 
 const cssLoaders = (extra) => {
-  const loaders = [
-    { loader: MiniCssExtractPlugin.loader }, 
-    'css-loader',
-  ];
+  const loaders = [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
 
-if (extra) {
-  loaders.push(extra);
-}
-  return loaders;
+  if (extra) {
+    loaders.push(extra)
+  }
+  return loaders
 }
 
 const jsLoaders = (extra) => {
   const loaders = {
-    loader: "babel-loader",
+    loader: 'babel-loader',
     options: {
-      presets: [
-        '@babel/preset-env',
-      ]
+      presets: ['@babel/preset-env']
     }
   }
 
   if (extra) {
-    loaders.options.presets.push(extra);
+    loaders.options.presets.push(extra)
   }
 
-  return loaders;
+  return loaders
 }
 
 const setPlugins = () => {
@@ -63,70 +54,93 @@ const setPlugins = () => {
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
+    new HtmlWebpackPlugin({
+      template: './zavialov2/hw35/index.html',
+      filename: 'zavialov2/hw35/index.html',
+      chunks: ['hw35']
+    }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname,'src/assets/favicon/favicon.ico'),
-          to: path.resolve(__dirname, 'dist/assets/favicon'),
-        },
-      ],
+          from: path.resolve(__dirname, 'src/assets/favicon/favicon.ico'),
+          to: path.resolve(__dirname, 'dist/assets/favicon')
+        }
+      ]
     }),
     new MiniCssExtractPlugin({
-      filename: filename('css'),
+      filename: filename('css')
     }),
     new EslintWebpackPlugin({
       extensions: ['js'],
       fix: true
     }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true
+    }),
     new CopyPlugin({
       patterns: [
-        { 
-          from: path.resolve(__dirname, 'src/pages'), 
+        {
+          from: path.resolve(__dirname, 'src/pages'),
           to: 'pages' // Створить папку dist/pages/
         },
-        { 
-          from: path.resolve(__dirname, 'src/images'), 
-          to: 'images' // Створить папку dist/images/
+        {
+          from: path.resolve(__dirname, 'src/zavialov2'),
+          to: 'zavialov2',
+          globOptions: {
+            ignore: ['**/hw35/**']
+          }
         },
-      ],
-    }),
+        {
+          from: path.resolve(__dirname, 'src/images'),
+          to: 'images' // Створить папку dist/images/
+        }
+      ]
+    })
   ]
 
-  if(IS_PROD) { 
+  if (IS_PROD) {
     //code
   }
 
-  if(IS_DEV) {
+  if (IS_DEV) {
     //code
   }
 
-  return plugins;
+  return plugins
 }
 
 module.exports = {
-  context: path.resolve(__dirname,'src'),
+  context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
     main: './index.jsx',
+    hw35: './zavialov2/hw35/index.js'
   },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: filename('js'),
+    filename: filename('js')
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname,'src'),
-      '@css': path.resolve(__dirname,'src/css'),
-      '@assets': path.resolve(__dirname,'src/assets'),
+      '@': path.resolve(__dirname, 'src'),
+      '@css': path.resolve(__dirname, 'src/css'),
+      '@assets': path.resolve(__dirname, 'src/assets')
     },
-    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx',],
+    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx']
   },
   optimization: optimization(),
   devServer: {
     port: 4200,
     hot: false,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false
+      }
+    }
   },
   devtool: IS_DEV ? 'source-map' : false,
   plugins: setPlugins(),
@@ -135,56 +149,52 @@ module.exports = {
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
-        use: jsLoaders(),
+        use: jsLoaders()
       },
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: jsLoaders('@babel/preset-typescript'),
+        use: jsLoaders('@babel/preset-typescript')
       },
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: jsLoaders('@babel/preset-react'),
+        use: jsLoaders('@babel/preset-react')
       },
       {
         test: /\.css$/,
-        use: cssLoaders(),
+        use: cssLoaders()
       },
       {
         test: /\.less$/,
-        use: cssLoaders('less-loader'),
+        use: cssLoaders('less-loader')
       },
       {
         test: /\.s[ac]ss$/,
-        use: cssLoaders('sass-loader'),
+        use: cssLoaders('sass-loader')
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp|ico)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[name].[hash][ext]',
-        },
+          filename: 'assets/images/[name].[hash][ext]'
+        }
       },
       {
         test: /\.(woff|woff2|ttf|eot)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[name].[hash][ext]',
-        },
+          filename: 'assets/fonts/[name].[hash][ext]'
+        }
       },
       {
         test: /\.xml$/,
-        use: [
-          'xml-loader'
-        ],
+        use: ['xml-loader']
       },
       {
         test: /\.csv$/,
-        use: [
-          'csv-loader'
-        ],
-      },
-    ],
+        use: ['csv-loader']
+      }
+    ]
   }
 }
