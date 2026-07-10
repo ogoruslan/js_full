@@ -1,8 +1,12 @@
-.top.container {
-    background-image: url("./media/background-img.jpg");
-    height: 700px;
+header{
+    display: inline-flex;
+    width: 100%;
+    justify-content:space-between;
+    background-color: #bed5dd;
 }
 
-h1{
-    color: pink;
+.top.container {
+    background-image: url("./media/background-img.jpg");
+    background-size: cover;
+    height: 700px;
 }
