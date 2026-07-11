@@ -1,15 +1,79 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>HTTP methods</title>
 </head>
+
 <body>
     <header>
         <h1>HW 31.1. Асинхронні операції та робота з API в JavaScript</h1>
     </header>
-    <main></main>
+    <main>
+        <button onclick="clearResonseText()" class="clear-btn">Clear Response</button>
+        <p id="data-example">Data example: {"id": 101, "title": "foo", "body": "bar", "userId": 1}</p>
+
+        <div id="get">
+            <h2>GET method</h2>
+            <label for="get-segment">Provide segment: </label>
+            <input type="text" id="get-segment" name="get-segment" required />
+
+            <button onclick="makeGetRequest()">Make GET request</button>
+
+        </div>
+        <div id="post">
+            <h2>POST method</h2>
+
+            <label for="post-segment">Provide segment: </label>
+            <input type="text" id="post-segment" name="post-segment" required />
+
+            <label for="post-data">Provide data: </label>
+            <input type="text" id="post-data" name="post-data" required />
+
+            <button onclick="makePostRequest()">Make POST request</button>
+        </div>
+
+        <div id="put">
+            <h2>PUT method</h2>
+
+            <label for="put-id">Provide id: </label>
+            <input type="text" id="put-id" name="put-id" required />
+
+            <label for="put-data">Provide data: </label>
+            <input type="text" id="put-data" name="put-data" required />
+
+
+            <button onclick="makePutRequest()">Make PUT request</button>
+        </div>
+
+        <div id="patch">
+            <h2>PATCH method</h2>
+
+            <label for="patch-id">Provide id: </label>
+            <input type="text" id="patch-id" name="patch-id" required />
+
+            <label for="patch-data">Provide data: </label>
+            <input type="text" id="patch-data" name="patch-data" required />
+
+            <button onclick="makePatchRequest()">Make PATCH request</button>
+        </div>
+        <div id="delete">
+            <h2>DELETE method</h2>
+
+            <label for="delete-id">Provide id: </label>
+            <input type="text" id="delete-id" name="delete-id" required />
+
+            <button onclick="makeDeleteRequest()">Make DELETE request</button>
+
+        </div>
+        <div id="response-container">
+            <p id="response">Response: </p>
+        </div>
+    </main>
     <footer></footer>
 </body>
+
 </html>

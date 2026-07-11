@@ -91,7 +91,6 @@ const setPlugins = () => {
         },
          { 
           from: path.resolve(__dirname, 'src/smelyk'), 
-          to: 'smelyk' // Створить папку dist/images/
         },
       ],
     }),
