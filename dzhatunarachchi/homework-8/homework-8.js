@@ -18,12 +18,15 @@ console.log('#8. JavaScript homework example file')
  */
 
 function createDomElement(tagName, textContent, container) {
-  // code here
+  const element = document.createElement(tagName)
+  element.textContent = textContent
+  container.appendChild(element)
+  return element
+
 }
 
-// Демонстрація використання функції
-// const container = document.body // В якості прикладу використовуємо body як контейнер
-// console.log(createDomElement('p', 'This paragraph has been added to the specified container.', container))
+const container = document.body // В якості прикладу використовуємо body як контейнер
+console.log(createDomElement('p', 'This paragraph has been added to the specified container.', container))
 
 /*
  * #2
@@ -39,14 +42,20 @@ function createDomElement(tagName, textContent, container) {
  * 4. При встановленні cookie, функція виводить інформаційне повідомлення у консоль про успішне зберігання даних.
  */
 
-// setUserInfoCookie.js
+//setUserInfoCookie.js
 
 function setUserInfoCookie(key, value) {
-  // code here
+  const expires = new Date(Date.now() + 10000);
+  expires.toUTCString();
+  const encodedValue = encodeURIComponent(value)
+
+  document.cookie = key + "=" + (encodedValue || "") + "; expires = " + expires.toUTCString() + "; path=/";
+
 }
 
 // Демонстрація використання функції
-// setUserInfoCookie('language', 'en');
+setUserInfoCookie('language', 'en');
+console.log(document.cookie)
 
 /*
  * #3
@@ -69,15 +78,21 @@ function setUserInfoCookie(key, value) {
  */
 
 function saveUserInfo(key, value) {
-  // code here
+  sessionStorage.setItem(key, value);
+  console.log(`Saved ${key}: ${value}`);
 }
 
 function getUserInfo(key) {
-  // code here
+  const user = sessionStorage.getItem(key);
+  console.log(`Retrieved ${key}: ${user}`);
+  return user;
 }
 
 // Демонстрація використання функцій
-// saveUserInfo('username', 'JohnDoe');
-// console.log(getUserInfo('username')); // Виведе: JohnDoe
+saveUserInfo('username', 'JohnDoe');
+getUserInfo('username');
+// Демонстрація використання функцій
+console.log(saveUserInfo('username', 'JohnDoe'));
+console.log(getUserInfo('username'));
 
-export { createDomElement, setUserInfoCookie, saveUserInfo, getUserInfo }
+//export { createDomElement, setUserInfoCookie, saveUserInfo, getUserInfo }
