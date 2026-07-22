@@ -91,4 +91,4 @@ function getUserInfo(key) {
 saveUserInfo('username', 'JohnDoe');
 getUserInfo('username');
 
-export { createDomElement, setUserInfoCookie, saveUserInfo, getUserInfo }
+//export { createDomElement, setUserInfoCookie, saveUserInfo, getUserInfo }

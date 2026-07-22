@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Мої домашні завдання</title>
     <style>
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         background: #f1f5f9;
         color: #334155;
         margin: 0;
@@ -104,8 +106,12 @@
         border-radius: 50%;
       }
 
-      .dot-done { background: #6366f1; }
-      .dot-missing { background: #e2e8f0; }
+      .dot-done {
+        background: #6366f1;
+      }
+      .dot-missing {
+        background: #e2e8f0;
+      }
 
       .cards-grid {
         width: 100%;
@@ -124,12 +130,14 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
       .card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       }
 
       .card-top {
@@ -231,9 +239,7 @@
       <h1>Мої домашні завдання</h1>
     </div>
 
-
     <div class="cards-grid">
-
       <div class="card">
         <div class="card-top"><span class="card-num">1.1</span><span class="badge-missing">Відсутнє</span></div>
         <p class="card-title">Практичний вступ до HTML: налаштування VSCode та створення сторінки</p>
@@ -337,7 +343,7 @@
         <a class="btn-open" href="./homework-3/index.html" target="_blank">Відкрити →</a>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">21.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">Принципи вищих функцій і замикань</p>
         <a class="btn-open" href="./homework-4/index.html" target="_blank">Відкрити →</a>
@@ -349,59 +355,65 @@
         <a class="btn-open" href="./homework-5/index.html" target="_blank">Відкрити →</a>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">23.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">Моделювання даних у JavaScript: Колекції, класи, функції</p>
         <a class="btn-open" href="./homework-6/index.html" target="_blank">Відкрити →</a>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">24.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">JavaScript в дії: Обчислення, трансформація та управління даними</p>
         <a class="btn-open" href="./homework-7/index.html" target="_blank">Відкрити →</a>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">25.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">JavaScript Essentials: DOM Manipulation and Data Storage Techniques</p>
+        <a class="btn-open" href="./homework-8/index.html" target="_blank">Відкрити →</a>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">26.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">JavaScript на практиці: відстеження дій користувача</p>
+        <a class="btn-open" href="./homework-9/index.html" target="_blank">Відкрити →</a>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">27.1</span><span class="badge-done">Виконано</span></div>
-        <p class="card-title">Розробка повнофункціонального слайдера на чистому JavaScript з використання функціонального підходу</p>
+        <p class="card-title">
+          Розробка повнофункціонального слайдера на чистому JavaScript з використання функціонального підходу
+        </p>
+        <a class="btn-open" href="./homework-10/index.html" target="_blank">Відкрити →</a>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">28.1</span><span class="badge-done">Виконано</span></div>
-        <p class="card-title">Розробка повнофункціонального слайдера на чистому JavaScript з використанням прототипів, класів та наслідування</p>
+        <p class="card-title">
+          Розробка повнофункціонального слайдера на чистому JavaScript з використанням прототипів, класів та
+          наслідування
+        </p>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">29.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">Тестування коду на практиці: Використання Jest для перевірки JavaScript функцій</p>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">30.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">Використання регулярних виразів для валідації вводу</p>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">31.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">Асинхронні операції та робота з API в JavaScript</p>
       </div>
 
-       <div class="card">
+      <div class="card">
         <div class="card-top"><span class="card-num">32.1</span><span class="badge-done">Виконано</span></div>
         <p class="card-title">Інтеграція зовнішнього API для живого пошуку фільмів</p>
       </div>
-
-
     </div>
 
     <footer class="footer__container">
