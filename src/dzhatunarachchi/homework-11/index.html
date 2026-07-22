@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слайдер з котиками</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <div id="slider"></div>
+
+    <script src="slider-prototype.js"></script>
+    <!-- Щоб перевірити версію на класах, заміни рядок вище на:
+     <script src="slider-class.js"></script> -->
+    <script>
+      
+      new TouchSlider(document.getElementById("slider"), {
+        images: [
+          "https://cataas.com/cat?width=500&height=400&1",
+          "https://cataas.com/cat?width=500&height=400&2",
+          "https://cataas.com/cat?width=500&height=400&3",
+          "https://cataas.com/cat?width=500&height=400&4",
+          "https://cataas.com/cat?width=500&height=400&5",
+          "https://cataas.com/cat?width=500&height=400&6",
+        ],
+        interval: 3000,
+        showArrows: true,
+        showIndicators: true,
+        loop: true,
+        autoplay: true,
+        dragThreshold: 40,
+        pauseOnHover: true, 
+      });
+    </script>
+  </body>
+</html>
