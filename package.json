@@ -2,7 +2,7 @@
   "name": "js_full",
   "version": "1.0.0",
   "description": "Homeworks of students from the full js course.",
-  "homepage": "https://ogoruslan.github.io/js_full",
+  "homepage": "https://yanasmelik.github.io/js_full",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
