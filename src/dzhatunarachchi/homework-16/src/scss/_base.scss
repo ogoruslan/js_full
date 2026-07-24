@@ -1,0 +1,32 @@
+// ==========================================================
+// Базові стилі та скидання
+// ==========================================================
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: $font-base;
+
+  // навмисно без -webkit-/-moz- префіксів у джерелі —
+  // їх додасть автопрефіксер під час збірки
+  user-select: none;
+}
+
+h1 {
+  // ще одна властивість, що потребує вендорних префіксів
+  background: linear-gradient(90deg, $color-accent, $color-text);
+  background-clip: text;
+  color: transparent;
+}
