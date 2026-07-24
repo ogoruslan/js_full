@@ -17,3 +17,5 @@ async function run() {
 }
 
 run();
+
+export { getData, postData, putData, patchData, deleteData };

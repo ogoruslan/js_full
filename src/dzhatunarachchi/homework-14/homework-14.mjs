@@ -241,4 +241,4 @@ async function deleteData(id) {
     }
 }
 
-//export { getData, postData, putData, patchData, deleteData };
+export { getData, postData, putData, patchData, deleteData };
