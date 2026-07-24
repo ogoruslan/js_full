@@ -1,18 +1,6 @@
 "use strict";
 
-/* ==========================================================
- * Gulp-конфігурація
- *
- * Задачі:
- *   styles   — SCSS -> CSS, автопрефікси, форматування (читабельний main.css)
- *   stylesMin— мінімізація зібраного CSS в окремий *.min.css
- *   html     — копіювання HTML з src у dist
- *   clean    — очищення dist перед збіркою
- *   serve    — BrowserSync-сервер з live reload
- *   watch    — стеження за файлами та перезапуск потрібних задач
- *   build    — повна одноразова збірка (без сервера)
- *   default  — build + serve + watch (для щоденної розробки)
- * ========================================================== */
+
 
 const { src, dest, watch, series, parallel } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
@@ -24,7 +12,6 @@ const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
 const { deleteAsync } = require("del");
 
-/* ---------- Шляхи проєкту ---------- */
 const paths = {
   scss: {
     src: "src/scss/**/*.scss",
@@ -38,7 +25,6 @@ const paths = {
   dist: "dist",
 };
 
-/* ---------- 1-3. SCSS -> CSS, автопрефікси, форматування ---------- */
 function styles() {
   return src(paths.scss.entry)
     .pipe(sourcemaps.init())
@@ -55,7 +41,6 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
-/* ---------- 5. Мінімізація вже зібраного CSS ---------- */
 function stylesMin() {
   return src(`${paths.scss.dest}/main.css`)
     .pipe(cleanCSS({ level: 2 }))
@@ -65,17 +50,14 @@ function stylesMin() {
 
 const css = series(styles, stylesMin);
 
-/* ---------- HTML: просто копіюємо в dist ---------- */
 function html() {
   return src(paths.html.src).pipe(dest(paths.html.dest));
 }
 
-/* ---------- Очищення папки збірки ---------- */
 function clean() {
   return deleteAsync([paths.dist]);
 }
 
-/* ---------- 2. BrowserSync — live reload ---------- */
 function serve(cb) {
   browserSync.init({
     server: { baseDir: paths.dist },
@@ -90,13 +72,11 @@ function reload(cb) {
   cb();
 }
 
-/* ---------- Стеження за файлами ---------- */
 function watchFiles() {
   watch(paths.scss.src, css);
   watch(paths.html.src, series(html, reload));
 }
 
-/* ---------- Композитні задачі ---------- */
 const build = series(clean, parallel(html, css));
 const dev = series(build, parallel(serve, watchFiles));
 
