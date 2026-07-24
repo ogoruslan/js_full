@@ -27,8 +27,8 @@ body {
 }
 
 h1 {
-  background: -webkit-gradient(linear, left top, right top, from(#ff8a3d), to(#eef1f7));
-  background: linear-gradient(90deg, #ff8a3d, #eef1f7);
+  background: -webkit-gradient(linear, left top, right top, from(#ff3d3d), to(#eef1f7));
+  background: linear-gradient(90deg, #ff3d3d, #eef1f7);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -66,7 +66,7 @@ h1 {
 
 .card__text {
   margin: 0;
-  color: #8a93a6;
+  color: #12962c;
   line-height: 1.5;
 }
 
@@ -76,7 +76,7 @@ h1 {
   padding: 12px 22px;
   border: none;
   border-radius: 10px;
-  background-color: #ff8a3d;
+  background-color: #ff3d3d;
   color: #141821;
   font-weight: 600;
   cursor: pointer;
