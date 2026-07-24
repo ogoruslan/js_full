@@ -21,23 +21,23 @@ const optimization = () => {
       new TerserPlugin(),
     ]
   }
-} 
+}
 
 const filename = (ext) => {
-  return IS_DEV ? 
-      `[name].${ext}` : 
-      `[name].[contenthash].${ext}`;
+  return IS_DEV ?
+    `[name].${ext}` :
+    `[name].[contenthash].${ext}`;
 }
 
 const cssLoaders = (extra) => {
   const loaders = [
-    { loader: MiniCssExtractPlugin.loader }, 
+    { loader: MiniCssExtractPlugin.loader },
     'css-loader',
   ];
 
-if (extra) {
-  loaders.push(extra);
-}
+  if (extra) {
+    loaders.push(extra);
+  }
   return loaders;
 }
 
@@ -67,7 +67,7 @@ const setPlugins = () => {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname,'src/assets/favicon/favicon.ico'),
+          from: path.resolve(__dirname, 'src/assets/favicon/favicon.ico'),
           to: path.resolve(__dirname, 'dist/assets/favicon'),
         },
       ],
@@ -81,27 +81,31 @@ const setPlugins = () => {
     }),
     new CopyPlugin({
       patterns: [
-        { 
-          from: path.resolve(__dirname, 'src/pages'), 
+        {
+          from: path.resolve(__dirname, 'src/pages'),
           to: 'pages' // Створить папку dist/pages/
         },
-        { 
-          from: path.resolve(__dirname, 'src/images'), 
+        {
+          from: path.resolve(__dirname, 'src/images'),
           to: 'images' // Створить папку dist/images/
         },
-         { 
-          from: path.resolve(__dirname, 'src/smelyk'), 
+        {
+          from: path.resolve(__dirname, 'src/smelyk'),
           to: 'smelyk' // Створить папку dist/images/
+        },
+        {
+          from: path.resolve(__dirname, 'src/dzhatunarachchi'),
+          to: 'dzhatunarachchi'
         },
       ],
     }),
   ]
 
-  if(IS_PROD) { 
+  if (IS_PROD) {
     //code
   }
 
-  if(IS_DEV) {
+  if (IS_DEV) {
     //code
   }
 
@@ -109,7 +113,7 @@ const setPlugins = () => {
 }
 
 module.exports = {
-  context: path.resolve(__dirname,'src'),
+  context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
     main: './index.jsx',
@@ -121,9 +125,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname,'src'),
-      '@css': path.resolve(__dirname,'src/css'),
-      '@assets': path.resolve(__dirname,'src/assets'),
+      '@': path.resolve(__dirname, 'src'),
+      '@css': path.resolve(__dirname, 'src/css'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
     },
     extensions: ['.js', '.json', '.jsx', '.ts', '.tsx',],
   },
